@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<form method="post" class="card text-center">
+    {% csrf_token %}
+
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+
+    {% include 'components/_form_errors.html' %}
+
+    <label for="{{ form.username.id_for_label }}">
+        Имя пользователя
+    </label>
+    {{ form.username }}
+
+    <label for="{{ form.password.id_for_label }}">
+        Пароль
+    </label>
+    {{ form.password }}
+    <button class="btn btn-primary" style="margin: 20px 20px 20px 600px; width: 300px">Вход</button>
+</form>
+{% endblock main %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+<div class="d-flex justify-content-between" style="margin-bottom:30px; margin-top:30px">
+    <div class="col-3">
+        <div class="card-header">
+            Категории
+        </div>
+        <div class="list-group" style="margin-bottom:20px">
+            <a href="{% url 'product_list' %}" class="list-group-item list-group-item-action">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Все продукты
+                    </div>
+                </div>
+            </a>
+            {% for category in categories %}
+            <a href="{% url 'products_by_cat' category.pk %}" class="list-group-item list-group-item-action">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        {{ category.title }}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            {% for product in products %}
+            <div class="col col-3" style="margin-bottom:20px">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{ product.image.url }}" width="150px">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.price }} So'm</p>
+                        <a href="{% url 'detail_view' product.pk %}" class="btn btn-primary">Подробнее</a>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main %}

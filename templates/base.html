@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+        {% block title %}
+        Mosslad
+        {% endblock title %}
+    </title>
+
+    <link rel="shortcut icon" href="{% static '/store/img/M.png' %}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'store/css/bootstrap.min.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{% static 'store/css/responsive.css' %}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{% static 'store/css/jquery.mCustomScrollbar.min.css' %}">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+    <!--[if lt IE 9]><![endif]-->
+</head>
+<!-- body -->
+<body class="main-layout">
+<!-- loader  -->
+<div class="loader_bg">
+    <div class="loader"><img src="{% static 'store/image/loading.gif' %}" alt="#"/></div>
+</div>
+<!-- end loader -->
+<!-- header -->
+<header style="">
+    <!-- header inner -->
+    {% include 'components/_navbar.html' %}
+</header>
+
+
+<!-- end header inner -->
+<!-- end header -->
+<!-- banner -->
+<p>
+    {% block banner %}
+    {% endblock banner %}
+</p>
+<!-- end banner -->
+<!-- about section -->
+{% block about %}
+{% endblock about %}
+<!-- about section -->
+<!-- Our  Glasses section -->
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+<!-- end Our  Glasses section -->
+<!--  footer -->
+{% include 'components/_footer.html' %}
+<!-- end footer -->
+<!-- Javascript files-->
+<script src="{% static 'store/js/jquery.min.js' %}"></script>
+<script src="{% static 'store/js/popper.min.js' %}"></script>
+<script src="{% static 'store/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'store/js/jquery-3.0.0.min.js' %}"></script>
+<!-- sidebar -->
+<script src="{% static 'store/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'store/js/custom.js' %}"></script>
+<script>
+         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+         // Australia.
+         function initMap() {
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 11,
+             center: {lat: 40.645037, lng: -73.880224},
+             });
+
+         var image = '{% static 'store/images/maps-and-flags.png' %}';
+         var beachMarker = new google.maps.Marker({
+             position: {lat: 40.645037, lng: -73.880224},
+             map: map,
+             icon: image
+           });
+         }
+
+
+
+
+
+
+
+
+
+</script>
+<!-- google map js -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+<!-- end google map js -->
+</body>
+</html>
+

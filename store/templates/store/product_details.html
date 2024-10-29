@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Mosslad | {{ title }}
+{% endblock title %}
+
+{% block main %}
+
+<div class="d-flex justify-content-between" style="margin:0 auto">
+    <div class="col-6">
+        <img src="{{ product.image.url }}" style="width:700px; margin-top: 30px; margin-left:30px">
+    </div>
+    <div class="col-5 card text-center" style="height:300px; margin-top:80px; margin-right:50px;">
+        <h1 style="margin-top:10px; margin-bottom:10px; color:#7F167F">{{ product.title }}</h1>
+        <p style="margin-top:10px; margin-bottom:10px; color:#112D4E"> {{ product.information }} </p>
+        <div class="card-nutritional-item">
+            <div class="card-nutritional-item-top">
+                <p class="btn btn-primary" style="margin-top:15px; margin-bottom:10px; width:300px">
+                    <b style="color:red;">Цена</b>
+                    {{ product.price }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="text-center" style="margin-top:30px; margin-bottom:30px">Только у нас</h1>
+<section class="features" style="margin-bottom: 20px">
+    <div class="container card">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="features-block">
+                    <img src="{% static 'store/img/garantiya.png' %}" width="50px" alt="icon">
+                    <p class="features-block-text"> Гарантия качества продуктов</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="features-block">
+                    <img src="{% static 'store/img/assortiment.png' %}" width="50px" alt="icon">
+                    <p class="features-block-text">Широкий ассортимент продуктов</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="features-block">
+                    <img src="{% static 'store/img/like.png' %}" width="50px" alt="icon">
+                    <p class="features-block-text">Вкус и преимущество перед остальными</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}

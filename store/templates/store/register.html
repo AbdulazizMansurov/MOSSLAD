@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<form method="post" class="card card-center">
+    {% csrf_token %}
+
+    {% include 'components/_form_errors.html' %}
+
+    {{ form.username }}
+    {{ form.email }}
+    {{ form.password1 }}
+    {{ form.password2 }}
+    <button class="btn btn-primary" style="margin: 0 auto; margin-bottom:20px; width: 400px">Открыть аккаунт</button>
+    <h4><a href="{% url 'login' %}" style="card text-center">Уже есть аккаунт?</a></h4>
+</form>
+{% endblock main %}
